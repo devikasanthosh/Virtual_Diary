@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>e-Diary</title>
+    <!--favicon-->
+    <link rel="icon" href="{% static 'assets/images/logo-icon.png' %}" type="image/png"/>
+    <!-- Vector CSS -->
+    <link href="{% static 'assets/plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/>
+    <!--plugins-->
+    <link href="{% static 'assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/plugins/metismenu/css/metisMenu.min.css' %}" rel="stylesheet"/>
+    <!-- loader-->
+    <link href="{% static 'assets/css/pace.min.css' %}" rel="stylesheet"/>
+    <script src="{% static 'assets/js/pace.min.js' %}"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&amp;family=Roboto&amp;display=swap"/>
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}"/>
+    <!-- App CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/app.css' %}"/>
+    <link rel="stylesheet" href="{% static 'assets/css/dark-sidebar.css' %}"/>
+    <link rel="stylesheet" href="{% static 'assets/css/dark-theme.css' %}"/>
+</head>
+
+<body>
+<!-- wrapper -->
+<div class="wrapper">
+    <!--sidebar-wrapper-->
+    <div class="sidebar-wrapper" data-simplebar="true">
+        <div class="sidebar-header">
+            
+            <div>
+                <h4 class="logo-text">Virtual Diary</h4>
+            </div>
+            <a href="javascript:;" class="toggle-btn ms-auto"> <i class="bx bx-menu"></i>
+            </a>
+        </div>
+        <!--navigation-->
+        <ul class="metismenu" id="menu">
+
+            <li>
+                <a href="{% url 'user_home' %}">
+                    <div class="parent-icon icon-color-8"><i class="bx bx-home-alt"></i>
+                    </div>
+                    <div class="menu-title">Dashboard</div>
+                </a>
+            </li>
+            
+            <li>
+                <a href="{% url 'profile' %}">
+                    <div class="parent-icon icon-color-8"><i class="bx bx-user"></i>
+                    </div>
+                    <div class="menu-title">Profile</div>
+                </a>
+            </li>
+            <i class='far fa-user-circle' style='font-size:24px'></i>
+
+             <li>
+                <a href="{% url 'manageCategory' %}">
+                    <div class="parent-icon icon-color-8"><i class="bx bx-spa"></i>
+                    </div>
+                    <div class="menu-title">Category</div>
+                </a>
+            </li>
+              <li>
+                <a href="{% url 'manageNotes' %}">
+                    <div class="parent-icon icon-color-8"><i class="bx bx-spa"></i>
+                    </div>
+                    <div class="menu-title">Notes</div>
+                </a>
+            </li>
+
+
+
+
+            <li>
+                <a href="{% url 'searchNotes' %}">
+                    <div class="parent-icon icon-color-8"><i class="bx bx-search"></i>
+                    </div>
+                    <div class="menu-title">Search</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'changePassword' %}">
+                    <div class="parent-icon icon-color-8"><i class="bx bx-cog"></i>
+                    </div>
+                    <div class="menu-title">Change Password</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="logout/">
+                    <div class="parent-icon icon-color-8"><i class="bx bx-power-off"></i>
+                    </div>
+                    <div class="menu-title">Logout</div>
+                </a>
+            </li>
+
+
+        </ul>
+        <!--end navigation-->
+    </div>
+    <!--end sidebar-wrapper-->
+
+    <!--header-->
+    <header class="top-header">
+        <nav class="navbar navbar-expand">
+            <div class="left-topbar d-flex align-items-center">
+                <a href="javascript:;" class="toggle-btn"> <i class="bx bx-menu"></i></a>
+            </div>
+            <div class="flex-grow-1 search-bar">
+                <div class="input-group" >
+                    <center><h3 class="text-danger" >Virtual Diary</h3></center>
+                </div>
+            </div>
+           
+                <div class="user-info">
+                    <p class="user-name mb-0">{{request.user.first_name}} {{request.user.last_name}}</p>
+                </div>
+                           
+            </div>
+        </nav>
+    </header>
+    <!--end header-->
+
+    {% block main %}
+
+    {% endblock %}
+
+    
+
+    <!--footer -->
+    <div class="footer">
+        <p class="mb-0">Virtual Diary&copy;
+            <script>document.write(new Date().getFullYear());</script>
+            .
+        </p>
+    </div>
+    <!-- end footer -->
+</div>
+
+
+
+
+
+<script>
+		new PerfectScrollbar('.dashboard-social-list');
+		new PerfectScrollbar('.dashboard-top-countries');
+
+
+
+</script>
+</body>
+</html>
